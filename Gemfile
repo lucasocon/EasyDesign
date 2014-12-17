@@ -13,6 +13,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'bootstrap-sass', '~> 3.3.1'
+gem "font-awesome-rails"
 
 #Plugins
 gem 'devise'

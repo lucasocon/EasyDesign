@@ -17,7 +17,7 @@
 					</li>
 					<% if usuario_signed_in? %>
 					<li>
-						<%= link_to "Editar Perfil", edit_usuario_session_path(current_usuario) %>
+						<%= link_to "Editar Perfil", edit_usuario_registration_path(current_usuario) %>
 					</li>
 					<li>
 						<%= link_to "Cerrar Session", destroy_usuario_session_path, method: :delete %>
