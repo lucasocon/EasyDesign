@@ -19,6 +19,7 @@ gem "font-awesome-rails"
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 
 #Development Tools
 gem 'jbuilder', '~> 2.0'

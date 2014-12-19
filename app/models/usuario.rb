@@ -3,7 +3,7 @@ class Usuario < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
-  devise omniauth_providers: [:facebook]
+  devise omniauth_providers: [:facebook, :twitter]
 
   def self.find_or_create_by_omniauth(auth)
   	usuario = Usuario.where(provider: auth[:provider], uid: auth[:uid]).first
