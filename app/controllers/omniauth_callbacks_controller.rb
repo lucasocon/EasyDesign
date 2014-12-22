@@ -15,7 +15,7 @@ class OmniauthCallbacksController < ApplicationController
 		if @usuario.persisted?
 			sign_in_and_redirect @usuario, event: :authentication
 		else
-			session[:omniauth_erros] = @usuario.errors.full_messages.to_sentence unless @usuario.save
+			session[:omniauth_errors] = @usuario.errors.full_messages.to_sentence unless @usuario.save
 			session[:omniauth_data] = data
 
 			redirect_to new_usuario_registration_url
@@ -25,10 +25,10 @@ class OmniauthCallbacksController < ApplicationController
 	def twitter
 		auth = request.env["omniauth.auth"]
 		data = {
-			nombre: auth.info.first_name,
+			nombre: auth.info.name,
 			apellido: "",
-			username: auth.info.username,
-			email: "",
+			username: auth.info.nickname,
+			email: "#{auth.info.nickname}@twitter.com",
 			provider: auth.provider,
 			uid: auth.uid
 		}
@@ -38,7 +38,7 @@ class OmniauthCallbacksController < ApplicationController
 		if @usuario.persisted?
 			sign_in_and_redirect @usuario, event: :authentication
 		else
-			session[:omniauth_erros] = @usuario.errors.full_messages.to_sentence unless @usuario.save
+			session[:omniauth_errors] = @usuario.errors.full_messages.to_sentence unless @usuario.save
 			session[:omniauth_data] = data
 
 			redirect_to new_usuario_registration_url
