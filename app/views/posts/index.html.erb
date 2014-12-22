@@ -1,0 +1,19 @@
+<h1>Listing Posts</h1>
+
+<table>
+	<tr>
+		<th><strong>Titulo</strong></th>	
+		<th><strong>Contenido</strong></th>
+	</tr>
+	<% posts.each do |post|%>
+		<tr>
+			<td> <%= post.titulo %></td>
+			<td> <%= post.contenido %></td>
+		</tr>
+		<td>
+			<%= link_to 'Show', post %><br/>
+      		<%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?'} %>
+		</td>
+	<% end %>
+</table>
+<%= link_to 'Crear nuevo post', new_post_path %><br/>

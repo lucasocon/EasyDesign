@@ -1,9 +1,9 @@
 class Usuario < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
   devise omniauth_providers: [:facebook, :twitter]
+
+  has_many :posts
 
   validates :username, presence: true, uniqueness: true, 
   length: {in: 5..20, too_short: "Tiene que tener al menos 5 caracteres.", too_long: "Maximo 20 caracteres."}
