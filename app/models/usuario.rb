@@ -21,5 +21,6 @@ class Usuario < ActiveRecord::Base
   			password: Devise.friendly_token[0,10]
   			)
   	end
+    usuario
   end
 end

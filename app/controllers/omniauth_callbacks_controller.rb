@@ -4,7 +4,7 @@ class OmniauthCallbacksController < ApplicationController
 		data = {
 			nombre: auth.info.first_name,
 			apellido: auth.info.last_name,
-			username: auth.info.username,
+			username: "#{auth.info.first_name}#{auth.info.last_name}",
 			email: auth.info.email,
 			provider: auth.provider,
 			uid: auth.uid
