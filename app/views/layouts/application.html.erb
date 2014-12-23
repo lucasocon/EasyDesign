@@ -15,6 +15,9 @@
 					<li>
 						<%= link_to "Inicio", root_path %>
 					</li>
+					<li>
+						<%= link_to "Posts", posts_path %>
+					</li>
 					<% if usuario_signed_in? %>
 					<li>
 						<%= link_to "Editar Perfil", edit_usuario_registration_path(current_usuario) %>

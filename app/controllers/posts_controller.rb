@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
-	#before_action :authenticate_usuario!, except: [:show, :index]
+	before_action :authenticate_usuario!, except: [:show, :index]
 
 	expose(:posts)	
-	expose(:post, attributes: :post_params)
+	expose(:post, params: :post_params)
 
 	def index; end
 
@@ -11,7 +11,6 @@ class PostsController < ApplicationController
 	def new; end
 
 	def create
-		params.permit!
 		if current_usuario.posts << post
 			redirect_to root_path
 		else
