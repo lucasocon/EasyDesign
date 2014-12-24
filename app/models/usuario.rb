@@ -10,11 +10,11 @@ class Usuario < ActiveRecord::Base
   has_many :followers, through: :followers_friendships, source: :friend
 
   def follow!(follow_id)
-    self.friendships.create!(fiend_id: follow_id)
+    self.friendships.create!(friend_id: follow_id)
   end
 
-  def can_follow(follow_id)
-    fiend_id == self.id or friendships.where(fiend_id: fiend_id).size > 0
+  def can_follow?(follow_id)
+    not follow_id == self.id or friendships.where(friend_id: follow_id).size > 0
   end
 
   validates :username, presence: true, uniqueness: true, 

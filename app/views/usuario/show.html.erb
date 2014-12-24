@@ -1,1 +1,4 @@
-<h1>Mi Perfil</h1>
+<h1><%= @usuario.username.capitalize %></h1>
+<% if usuario_signed_in? and current_usuario.can_follow?(@usuario_id) %>
+  <button class="btn btn-info" id="follow-btn" data-friend="<%= @usuario.id %>"><i class="fa fa-user"></i>Follow</button>
+<% end %>
