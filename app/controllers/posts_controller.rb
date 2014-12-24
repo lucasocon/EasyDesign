@@ -11,6 +11,7 @@ class PostsController < ApplicationController
 	def new; end
 
 	def create
+		params.permit!
 		post.usuario_id = current_usuario.id
 		if post.save
 			redirect_to root_path
@@ -25,7 +26,7 @@ class PostsController < ApplicationController
 		
 	end
 
-	protected
+	private
 	def post_params
 		params.require(:post).permit(:titulo, :contenido, :usuario_id, :file)
 	end
