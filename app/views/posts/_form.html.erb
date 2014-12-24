@@ -13,17 +13,17 @@
 
   <div class="field">
     <%= f.label :titulo %><br />
-    <%= f.text_field :titulo %>
+    <%= f.text_field :titulo, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :contenido %><br />
-    <%= f.text_area :contenido, rows: 6 %>
+    <%= f.text_area :contenido, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :extension %><br />
-    <%= f.text_field :extension %>
+  <div class="form-group">
+    <%= f.label :file %><br />
+    <%= f.file_field :file, class: "form-control" %>
   </div>
-   <div class="actions">
+  <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>

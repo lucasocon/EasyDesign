@@ -1,33 +1,9 @@
-<h1>New Post</h1>
-
-<%= form_for(post) do |f| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-      <% post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<div class="container">
+  <div class="row">
+    <div class="col-md-5 center-block no-float">
+      <h1>New Post</h1>
+      <%= render 'form' %>
+      <%= link_to "Atras", posts_path %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :titulo %><br />
-    <%= f.text_field :titulo %>
   </div>
-  <div class="field">
-    <%= f.label :contenido %><br />
-    <%= f.text_area :contenido, rows: 6 %>
-  </div>
-  <div class="field">
-    <%= f.label :extension %><br />
-    <%= f.text_field :extension %>
-  </div>
-   <div class="actions">
-    <%= f.submit "Create Product", class: "btn btn-primary btn-lg" %>
-  </div>
-<% end %>
-
-<%= link_to "Atras", posts_path %>
+</div>
