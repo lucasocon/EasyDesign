@@ -25,6 +25,9 @@
 					<li>
 						<%= link_to "Cerrar Session", destroy_usuario_session_path, method: :delete %>
 					</li>
+					<li>
+						<%= link_to "Mi Perfil", current_usuario %>
+					</li>
 					<% else %>
 					<li>
 						<%= link_to "Ingresar", new_usuario_session_path %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141223032129) do
+ActiveRecord::Schema.define(version: 20141224051435) do
 
   create_table "attachments", force: true do |t|
     t.string   "nombre"
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 20141223032129) do
   end
 
   add_index "attachments", ["post_id"], name: "index_attachments_on_post_id"
+
+  create_table "friendships", force: true do |t|
+    t.integer  "usuario_id"
+    t.integer  "friend_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "friendships", ["friend_id"], name: "index_friendships_on_friend_id"
+  add_index "friendships", ["usuario_id"], name: "index_friendships_on_usuario_id"
 
   create_table "posts", force: true do |t|
     t.string   "titulo"
