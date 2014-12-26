@@ -21,6 +21,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'decent_exposure'
+gem 'public_activity'
 
 #Development Tools
 gem 'jbuilder', '~> 2.0'

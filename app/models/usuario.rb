@@ -5,12 +5,12 @@ class Usuario < ActiveRecord::Base
 
   has_many :posts
   has_many :friendships
-  has_many :follows, through: :friendships, source: :usuario
-  has_many :followers_friendships, class_name: "Friendship", foreign_key: "usuario_id"
-  has_many :followers, through: :followers_friendships, source: :friend
+  has_many :follows, through: :friendships, source: :friend
+  has_many :followers_friendships, class_name: "Friendship", foreign_key: "friend_id"
+  has_many :followers, through: :followers_friendships, source: :usuario
 
   def follow!(follow_id)
-    self.friendships.create!(friend_id: follow_id)
+    friendships.create!(friend_id: follow_id)
   end
 
   def can_follow?(follow_id)
