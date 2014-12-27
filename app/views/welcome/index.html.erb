@@ -1,10 +1,8 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 center-block no-float">
-      <h1>Bienvenido :)</h1>
-      <ul class="list-group">
-        <%= render_activities(@actividades) %>
-      </ul>
-    </div>
-  </div>
+<div class="col-md-6 center-block no-float">
+  <h1>Bienvenido :)</h1>
+  <ul class="list-group">
+    <% if usuario_signed_in? %>
+      <%= render_activities(@actividades) %>
+    <% end %>
+  </ul>
 </div>

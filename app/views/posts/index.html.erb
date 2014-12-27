@@ -24,4 +24,6 @@
 <br>
 <br>
 <br>
-<%= link_to 'Crear nuevo post', new_post_path %><br/>
+<% if usuario_signed_in? %>
+	<%= link_to 'Crear nuevo post', new_post_path %><br/>
+<% end %>
