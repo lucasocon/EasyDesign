@@ -2,3 +2,28 @@
 <% if usuario_signed_in? and current_usuario.can_follow?(@usuario.id) %>
   <button class="btn btn-info" id="follow_btn" data-friend="<%= @usuario.id %>"><i class="fa fa-user"></i>Follow</button>
 <% end %>
+
+<% if current_usuario == @usuario %>
+  
+  <div class="col-md-3">
+  <h3>Siguiendo:</h3>
+    <ul class="list-group">
+      <% follows.each do |follow|%>
+        <li class="list-group-item">
+          <%= link_to follow.username, follow %>
+        </li>
+      <% end %>
+    </ul>  
+  </div>
+
+  <div class="col-md-3">
+  <h3>Siguidores:</h3>
+    <ul class="list-group">
+      <% followers.each do |follower|%>
+        <li class="list-group-item">
+          <%= link_to follower.username, follower %>
+        </li>
+      <% end %>
+    </ul>  
+  </div>
+<% end %>

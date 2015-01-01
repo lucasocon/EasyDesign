@@ -1,4 +1,7 @@
 class UsuarioController < ApplicationController
+  expose(:follows) { current_usuario.follows }
+  expose(:followers) { current_usuario.followers }
+
   def show
     @usuario = Usuario.find(params[:id])
   end

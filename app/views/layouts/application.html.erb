@@ -27,10 +27,10 @@
 						<%= link_to "Editar Perfil", edit_usuario_registration_path(current_usuario) %>
 					</li>
 					<li>
-						<%= link_to "Cerrar Session", destroy_usuario_session_path, method: :delete %>
-					</li>
-					<li>
 						<%= link_to "Mi Perfil", current_usuario %>
+					</li>
+					<li style="float: right">
+						<%= link_to "Cerrar Session", destroy_usuario_session_path, method: :delete %>
 					</li>
 					<% else %>
 					<li>
