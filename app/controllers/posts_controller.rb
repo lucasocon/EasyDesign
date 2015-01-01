@@ -10,6 +10,8 @@ class PostsController < ApplicationController
 
 	def new; end
 
+	def edit; end
+
 	def create
 		params.permit!
 		post.usuario_id = current_usuario.id
@@ -20,10 +22,22 @@ class PostsController < ApplicationController
 		end
 	end
 
+	def update
+		params.permit!
+   respond_to do |format|
+     if post.update(post_params)
+       format.html { redirect_to post, notice: 'Post was successfully updated.' }
+       format.json { head :no_content }
+     else
+       format.html { render action: 'edit' }
+       format.json { render json: post.errors, status: :unprocessable_entity }
+     end
+   end
+  end
+
 	def destroy
 		post.destroy
 		redirect_to posts_path, notice: "Fue eliminado con exito."
-		
 	end
 
 	private

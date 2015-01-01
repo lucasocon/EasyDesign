@@ -1,19 +1,17 @@
-<p id="notice"><%= notice %></p>
+<div class="jumbotron">
+  <h1><%= post.titulo %></h1>
+  <div>
+    <%= post.contenido %>
+  </div>
+  <div>
+    <p>$<%= post.price %></p>
+  </div>
+</div>
+<div class="text-right">
+  <% if post.usuario and usuario_signed_in? and post.usuario == current_usuario %>
+    <%= link_to 'Editar', edit_post_path(post) %>   
+    <%= link_to 'Borrar', post, method: :delete, data: {confirm: "¿Estas seguro de borrar el post?"} %>   
+  <% end %>
 
-<p>
-  <strong>Titulo:</strong>
-  <%= post.titulo %>
-</p>
-
-<p>
-  <strong>Contenido:</strong>
-  <%= post.contenido %>
-</p>
-
-<p>
-  <strong>Extension:</strong>
-  <%= post.extension %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(post) %> 
-<%= link_to 'Back', posts_path %>
+  <%= link_to 'Back', posts_path %>
+</div>
