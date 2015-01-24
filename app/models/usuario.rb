@@ -1,7 +1,7 @@
 class Usuario < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
-  devise omniauth_providers: [:facebook, :twitter]
+  #devise omniauth_providers: [:facebook, :twitter]
 
   has_many :posts
   has_many :friendships, foreign_key: "usuario_id", dependent: :destroy
